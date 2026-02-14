@@ -70,7 +70,7 @@ AI-Personal-Finance-Tracker/
 
 ⚙️ Installation & Setup
 Step 1: Clone Repository
-git clone https://github.com/yourusername/ai-personal-finance-tracker.git
+git clone https://github.com/yourusername/AI-based-personal-finance-tracker-and-budget-recommender.git
 cd ai-personal-finance-tracker
 Step 2: Create Virtual Environment (Optional but Recommended)
 python -m venv venv
