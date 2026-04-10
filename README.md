@@ -10,8 +10,7 @@ streamlit run app.py
 ```
 
 The app will:
-1. Automatically train the XGBoost model on first launch (requires the CSV in the same folder)
-2. Open in your browser at http://localhost:8501
+available on : https://ai-based-personal-finance-tracker-and-budget-recommender-ujpzg.streamlit.app/
 
 ## Architecture
 
