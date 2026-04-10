@@ -1,81 +1,44 @@
-💰 AI-Based Personal Finance Tracker & Budget Recommender
-An intelligent personal finance management system built using Machine Learning (XGBoost) and Streamlit, designed to track income, analyze expenses, and provide AI-powered budget recommendations.
+# ◈ FinTrack AI — Intelligent Personal Finance Tracker
 
-🚀 Overview
-This project helps users:
-Track monthly income and expenses
-Visualize spending patterns
-Receive AI-based budget predictions
-Compare income vs expenses
-Analyze category-wise expense distribution
-The system uses a trained XGBoost regression model to predict a recommended budget based on user financial inputs.
+A production-grade AI-powered finance tracker built with Streamlit, XGBoost, and Plotly.
 
-🧠 Machine Learning Model
-Algorithm Used: XGBoost Regressor
-Model File: xgboost_budget_model.pkl
+## Setup
 
-Features Used:
-City
-Gender
-Year
-Month
-Expense categories (Food, Travel, Bills, Shopping, Entertainment)
-
-Preprocessing:
-One-hot encoding using pd.get_dummies()
-Feature alignment with trained model columns
-
-The model predicts an optimal monthly budget based on spending behavior patterns.
-🛠️ Tech Stack
-🔹 Frontend & UI
-
-Streamlit
-Custom CSS Styling
-Plotly (Interactive Charts)
-
-🔹 Backend
-Python
-
-🔹 Machine Learning
-XGBoost
-Scikit-learn
-Pandas
-NumPy
-Joblib
-
-📊 Features
-
-🏠 Dashboard
-Enter monthly financial details
-View total income, total expense, and savings
-Store multiple monthly records
-
-🤖 AI Insights
-Predict recommended monthly budget
-Income vs Expense comparison graph
-Spending alert if expense exceeds income
-
-📈 Analytics
-Category-wise expense distribution (Pie Chart)
-Visual expense breakdown
-
-Project Structure
-AI-Personal-Finance-Tracker/
-│
-├── app.py
-├── xgboost_budget_model.pkl
-├── requirements.txt
-├── .gitignore
-└── README.md
-
-⚙️ Installation & Setup
-Step 1: Clone Repository
-git clone https://github.com/yourusername/AI-based-personal-finance-tracker-and-budget-recommender.git
-cd ai-personal-finance-tracker
-Step 2: Create Virtual Environment (Optional but Recommended)
-python -m venv venv
-venv\Scripts\activate      (Windows)
-Step 3: Install Dependencies
+```bash
 pip install -r requirements.txt
-Step 4: Run the Application
 streamlit run app.py
+```
+
+The app will:
+1. Automatically train the XGBoost model on first launch (requires the CSV in the same folder)
+2. Open in your browser at http://localhost:8501
+
+## Architecture
+
+```
+User Interface (Streamlit)
+  ↓
+Authentication Layer (SHA-256 hashing · SQLite)
+  ↓
+Financial Data Store (SQLite · Pandas)
+  ↓
+ML Engine (XGBoost Regressor · Scikit-learn)
+  ↓
+Insights + Claude AI Chatbot
+```
+
+## Features
+
+| Feature | Tech |
+|---|---|
+| User auth (signup/login) | SQLite + SHA-256 |
+| Transaction CRUD | Pandas + SQLite |
+| Budget prediction | XGBoost Regressor |
+| Interactive charts | Plotly |
+| AI Advisor chatbot | Claude API (with rule-based fallback) |
+| Spending insights | Rule-based engine |
+
+## Dataset
+
+Place `Credit_card_transactions_-_India_-_Simple.csv` in the same directory as `app.py`.
+The model trains automatically on first launch and caches to `model.pkl`.
